@@ -38,9 +38,9 @@ export default function StudentBoard() {
                 <div>
                     <span className="text-2xl">Student's Board</span>
                 </div>
-                <div>
+                {/* <div>
                     {JSON.stringify(session)}
-                </div>
+                </div> */}
                 <div className="flex-grow flex justify-between items-center px-8">
                     <div className="flex items-center px-4">
                         <div className="px-4">
