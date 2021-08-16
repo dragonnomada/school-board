@@ -38,6 +38,7 @@ export default function StudentBoard() {
                 <div>
                     <span className="text-2xl">Student's Board</span>
                 </div>
+                {/* Corregido */}
                 {/* <div>
                     {JSON.stringify(session)}
                 </div> */}
