@@ -1,0 +1,104 @@
+<mxGraphModel>
+  <root>
+    <mxCell id="0"/>
+    <mxCell id="1" parent="0"/>
+    <mxCell id="2" value="Login" style="styleInterfaz" parent="1" vertex="1">
+      <mxGeometry x="362.5" y="90" width="180" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="3" value="1" style="styleId" parent="2" vertex="1" connectable="0">
+      <mxGeometry width="30" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="4" value="Student Board" style="styleInterfaz" parent="1" vertex="1">
+      <mxGeometry x="182.5" y="230" width="515" height="450" as="geometry"/>
+    </mxCell>
+    <mxCell id="5" value="2" style="styleId" parent="4" vertex="1" connectable="0">
+      <mxGeometry width="30" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="7" value="School Board" style="styleInterfaz" parent="4" vertex="1">
+      <mxGeometry x="110" y="225" width="225" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="8" value="3" style="styleId" parent="7" vertex="1" connectable="0">
+      <mxGeometry width="30" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="17" value="Add Comment / With Session" style="exitX=0.3125;exitY=1;exitDx=0;exitDy=0;entryX=0.375;entryY=1;entryDx=0;entryDy=0;" parent="4" source="7" target="4" edge="1">
+      <mxGeometry x="-0.0992" y="46" relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="183" y="255"/>
+          <mxPoint x="183" y="290"/>
+          <mxPoint x="351" y="290"/>
+          <mxPoint x="351" y="340"/>
+          <mxPoint x="197" y="340"/>
+          <mxPoint x="197" y="450"/>
+        </Array>
+        <mxPoint as="offset"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="9" value="Details" style="styleInterfaz" parent="1" vertex="1">
+      <mxGeometry x="882.5" y="455" width="180" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="10" value="4" style="styleId" parent="9" vertex="1" connectable="0">
+      <mxGeometry width="30" height="30" as="geometry"/>
+    </mxCell>
+    <mxCell id="11" value="View Details / Default" style="exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="7" target="9" edge="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="12" value="Close Details / From School Board" style="exitX=0.125;exitY=0;exitDx=0;exitDy=0;entryX=0.9375;entryY=0;entryDx=0;entryDy=0;" parent="1" source="9" target="7" edge="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="13" value="Close Details / From Student Board" style="exitX=0.3125;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.375;entryDx=0;entryDy=0;" parent="1" source="9" target="4" edge="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="14" value="Sign In / From Student" style="exitX=0.1875;exitY=1;exitDx=0;exitDy=0;entryX=0.375;entryY=0;entryDx=0;entryDy=0;" parent="1" source="2" target="4" edge="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="15" value="View School Board / Without Session" style="exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="2" target="7" edge="1">
+      <mxGeometry x="0.5278" y="-5" relative="1" as="geometry">
+        <Array as="points"/>
+        <mxPoint as="offset"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="16" value="Add Comment / Without Session" style="exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" parent="1" source="7" target="2" edge="1">
+      <mxGeometry y="-50" relative="1" as="geometry">
+        <Array as="points"/>
+        <mxPoint as="offset"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="18" value="Sign Out" style="exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="4" target="2" edge="1">
+      <mxGeometry relative="1" as="geometry"/>
+    </mxCell>
+    <mxCell id="19" value="Sign In / With New Comment" style="exitX=0;exitY=0.375;exitDx=0;exitDy=0;entryX=0.125;entryY=0;entryDx=0;entryDy=0;" parent="1" source="2" target="4" edge="1">
+      <mxGeometry x="0.2653" y="51" relative="1" as="geometry">
+        <mxPoint as="offset"/>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="20" value="Sign In / Fail" style="exitX=0.0625;exitY=0;exitDx=0;exitDy=0;entryX=0.125;entryY=0;entryDx=0;entryDy=0;" parent="1" source="2" target="2" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="372.5" y="90"/>
+          <mxPoint x="372.5" y="40"/>
+          <mxPoint x="452.5" y="40"/>
+          <mxPoint x="452.5" y="70"/>
+          <mxPoint x="384.5" y="70"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="21" value="Enter as Student / Default" style="exitX=0;exitY=0.375;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="7" target="2" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="80" y="466"/>
+          <mxPoint x="80" y="113"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+    <mxCell id="22" value="Publish Comment / Default" style="exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.875;entryDx=0;entryDy=0;" parent="1" source="4" target="4" edge="1">
+      <mxGeometry relative="1" as="geometry">
+        <Array as="points">
+          <mxPoint x="173" y="568"/>
+          <mxPoint x="173" y="580"/>
+          <mxPoint x="100" y="580"/>
+          <mxPoint x="100" y="624"/>
+        </Array>
+      </mxGeometry>
+    </mxCell>
+  </root>
+</mxGraphModel>

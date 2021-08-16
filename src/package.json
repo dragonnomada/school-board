@@ -1,0 +1,17 @@
+{
+    "name": "my-project",
+    "version": "1.0.0",
+    "description": "Create by Architector Pro",
+    "main": "index.js",
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "next": "^11.0.1"
+    }
+}
