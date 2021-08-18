@@ -67,6 +67,14 @@ ready - started server on 0.0.0.0:3000, url: http://localhost:3000
 
 > Open the browser and go to `http://localhost:3000`
 
+* Try to use some `<user>@<password>` in the sign in process.
+
+```txt
+lisa@simpson
+john@doe
+marco@polo
+```
+
 ## Tutorial
 
 Follow the next tutorial to understand how the project was built.
