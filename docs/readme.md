@@ -67,7 +67,7 @@ ready - started server on 0.0.0.0:3000, url: http://localhost:3000
 
 > Open the browser and go to [http://localhost:3000](http://localhost:3000)
 
-* Try to use some `<user>@<password>` in the sign in process.
+* Try to use some `user` and `pasword` in the sign in process.
 
 User | Password
 --- | ---
