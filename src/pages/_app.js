@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { CommonContext } from "./architector/react/hooks";
 
-import "./style.css";
+import "./styles.css";
 
 export default function Model({ Component, ...props }) {
     const [isLock, setIsLock] = useState(false);

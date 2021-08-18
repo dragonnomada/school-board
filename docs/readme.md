@@ -1,41 +1,130 @@
 # School Board Project
 
-## Créditos
+## Introduction
 
-### Directores del Proyecto
+The [School Board Project](https://github.com/dragonnomada/school-board) was built with [Architector Pro](./Architector-Pro.md) and released to [Next JS](https://nextjs.org) and [React JS](https://reactjs.org).
 
-PhD Jorge Cervantes Ojeda
+![The School Board View](./assets/SchoolBoard.png)
 
-[jorge.cervantes.ojeda@gmail.com](mailto:jorge.cervantes.ojeda@gmail.com)
+## Quick Start
 
-PhD María del Carmen Gómez Fuentes
+Follow the next steps to run this project.
 
-[mcgomezfuentes@netscape.net](mailto:mcgomezfuentes@netscape.net)
+> Open a terminal inside your work folder
 
-### Desarrollador Principal
+```bash
+cd ~/Desktop
+```
 
-Alan Badillo Salas
+> Clone the School Board Project repo
 
-[dragonnomada123@gmail.com](mailto:dragonnomada123@gmail.com)
+```bash
+git clone https://github.com/dragonnomada/school-board.git
+```
 
-### Colaboradores
+> Go to the folder cloned (`~/Desktop/school-board`)
+
+```bash
+cd school-board
+```
+
+> Check for all ok
+
+```bash
+ls
+
+-- Terminal output --
+
+diagram.svg  diagram.xml  docs  src
+```
+
+* **Note:** In Windows use the command `dir` instead of `ls`
+
+> Change to `src` folder (`~/Desktop/school-board/src`)
+
+```bash
+cd src
+```
+
+> Install all dependencies
+
+```bash
+npm install
+```
+
+> Run the project
+
+```bash
+npm run dev
+
+-- Terminal output --
+
+> school-board@1.0.0 dev
+> next dev
+
+ready - started server on 0.0.0.0:3000, url: http://localhost:3000
+```
+
+> Open the browser and go to `http://localhost:3000`
+
+## Tutorial
+
+Follow the next tutorial to understand how the project was built.
+
+[School Board - Tutorial Step by Step](./Tutorial.md)
+
+## Documentation
+
+* [Introduction to React JS](./ArchitectorPro.md)
+
+* [Introduction to Next JS](./ArchitectorPro.md)
+
+* [Introduction to Architector Pro](./ArchitectorPro.md)
+
+* [School Board - Tutorial Step by Step](./Tutorial.md)
+
+* [School Board - Project Architecture](./Architecture.md)
+
+* [School Board - The Login Guide](./Login-Architecture.md)
+
+* [School Board - The Login View](./Login-View.md)
+
+* [School Board - The Login API](./Login-API.md)
+
+* [School Board - The Student Board Guide](./StudentBoard-Architecture.md)
+
+* [School Board - The Student Board View](./StudentBoard-View.md)
+
+* [School Board - The Student Board API](./StudentBoard-API.md)
+
+* [School Board - The School Board Guide](./SchoolBoard-Architecture.md)
+
+* [School Board - The School Board View](./SchoolBoard-View.md)
+
+* [School Board - The School Board API](./SchoolBoard-API.md)
+
+* [School Board - The Details Guide](./Details-Architecture.md)
+
+* [School Board - The Details View](./Details-View.md)
+
+* [School Board - The Details API](./Details-API.md)
+
+## About
+
+### Project Leaders
+
+[PhD Jorge Cervantes Ojeda](mailto:jorge.cervantes.ojeda@gmail.com)
+
+[PhD María del Carmen Gómez Fuentes](mailto:mcgomezfuentes@netscape.net)
+
+### Main Developer
+
+[Alan Badillo Salas](mailto:dragonnomada123@gmail.com)
+
+### Developers
 
 Rodrigo Iván Del Moral Martínez
 
 Esmeralda Pedraza Vazquez
 
 Ariadna Rivero Rodríguez
-
-## Acerca de este proyecto
-
-School Board es un proyecto generado por Architector Pro para mostrar sus alcances y límites. También para ser una guía de referencia a los programadores y mostrar algunos patrones de diseño que podrían ser útiles seguir.
-
-Este proyecto es parte del Servicio Social del alumno Alan Badillo Salas con matrícula 210369000 de la Licenciatura en Matemáticas Aplicadas del Departamento de Ciencias Naturales e Ingeniería (DCNI) de la Universidad Autónoma Metropolitana Unidad Cuajumalpa (UAM-C).
-
-## Introducción a Architector PRO
-
-`Architector PRO` es una herramienta de Software Open Source disponible para Windows, Linux y Mac (actualmente en fase de pruebas sobre Windows) basada en [Electron JS](https://www.electronjs.org).
-
-Consiste en un [Editor de Diagramas de Transiciones entre Interfaces de Usuario](https://www.sciencedirect.com/science/article/abs/pii/S0164121213001003) (**UITD** por sus siglas en inglés) que genera un proyecto de [Next JS](https://nextjs.org) y [React JS](https://es.reactjs.org).
-
-El proyecto creado por `Architector PRO` genera un código base con la información del Diagrama diseñado en el editor. También genera una serie de librerías útiles para facilitar la comunicación entre el API y las Vistas generadas.
