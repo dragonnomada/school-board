@@ -143,7 +143,7 @@ export default function Login() {
 }
 ```
 
-* **Note:** Create two states, the `username` and `password` states, using `useState(initialValue)` [React Hook](https://reactjs.org/docs/hooks-state.html). Bind this states in the View (inside the `<input>` controls).
+* **Note:** Create two states, the `username` and `password` states, using `useState(initialValue)` [React's Hook](https://reactjs.org/docs/hooks-state.html). Bind this states in the View (inside the `<input>` controls).
 
 > Design the `{/* TITLE */}`
 
