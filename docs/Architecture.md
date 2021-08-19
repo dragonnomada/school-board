@@ -121,3 +121,4 @@ Initial UI | Transition Action | Action Data (Input) | Transition Condition | Ta
 `Login` | `signIn` | `{ username, password, comment? }` | `Fromstudent` | `StudentBoard` | `{ username, comments, user }`
 `Login` | `signIn` | `{ username, password, comment? }` | `Withnewcomment` | `StudentBoard` | `{ username, comments, user, comment }`
 `Login` | `signIn` | `{ username, password, comment? }` | `Fail` | `Login` | `{ error, comment }`
+`Login` | `viewSchoolBoard` | `null` | `Withoutsession` | `SchoolBoard` | `{ comments }`
