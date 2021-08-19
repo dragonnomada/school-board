@@ -35,3 +35,21 @@ In the next document you can follow step by step the process to build this proje
 > In Visual Code expand all folders and check each file
 
 ![Diagram](./assets/Tutorial_5.png)
+
+>  **IMPORTANT:** Check the [Quick Start](./readme.md#quick-start) to run the project.
+
+## 5. Setup `SchoolBoard` as the main React Component
+
+> Into `pages/index.js` bind the `SchoolBoard` component
+
+```jsx
+// src/pages/index.js
+
+import SchoolBoard from "./views/SchoolBoard";
+
+export default function App() {
+    return (
+        <SchoolBoard />
+    );
+}
+```
