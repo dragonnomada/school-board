@@ -11,3 +11,27 @@ In the next document you can follow step by step the process to build this proje
 ![Diagram](./assets/Tutorial_1.png)
 
 * **Note:** Be careful with the name of the connectors (`<action>/<condition>`).
+
+## 2. Generate the source code
+
+> In Architector Pro first `Save` the diagram and then `Generate Sources`
+
+![Diagram](./assets/Tutorial_2.png)
+
+## 3. Open the `Source Code Project` in Visual Code
+
+> In Architector Pro open the project folder by clicking the path
+
+![Diagram](./assets/Tutorial_3.png)
+
+> In Explorer do secondary click and open the src folder in Visual Code
+
+![Diagram](./assets/Tutorial_4.png)
+
+* **Note:** If you don't have install the [Visual Studio Code](https://code.visualstudio.com), download it from [https://code.visualstudio.com](https://code.visualstudio.com)
+
+## 4. Inspect the project structure
+
+> In Visual Code expand all folders and check each file
+
+![Diagram](./assets/Tutorial_5.png)
