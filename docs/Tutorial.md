@@ -343,7 +343,7 @@ export default function SchoolBoard() {
 // TODO: Design the <StudentComment> component
 ```
 
-> **NOTE:** 
+> **NOTE:** Get a new comment from the *prompt* and call the action `addComment`
 
 ```jsx
 <button onClick={() => {
@@ -353,6 +353,12 @@ export default function SchoolBoard() {
         addComment({ comment, username: result?.username });
     }
 }}>Add Comment</button>
+```
+
+> **NOTE:** Call the `enterAsStudent` action by clicking the button
+
+```jsx
+<button onClick={() => enterAsStudent()}>Sign In</button>
 ```
 
 > **NOTE:** Map each comment as `<StudentComment>`
@@ -407,4 +413,34 @@ function StudentComment({ username, comment }) {
         </div>
     );
 }
+```
+
+> **NOTE:** call the `viewDetails` action by clicking all the comment row
+
+```jsx
+<div 
+    className="flex items-center border-b p-4 hover:bg-gray-200 cursor-pointer"
+    onClick={() => {
+        viewDetails({
+            username,
+            comment
+        });
+    }}
+>
+```
+
+> **NOTE:** Display the comment username
+
+```jsx
+<div>
+    <span className="text-gray-500">{comment.username}</span>
+</div>
+```
+
+> **NOTE:** Display the comment content
+
+```jsx
+<div className="text-gray-500 px-8 py-2">
+    <span>{comment.comment}</span>
+</div>
 ```
