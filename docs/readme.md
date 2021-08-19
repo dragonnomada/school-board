@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The [School Board Project](https://github.com/dragonnomada/school-board) was built with [Architector Pro](./Architector-Pro.md) and released to [Next JS](https://nextjs.org) and [React JS](https://reactjs.org).
+The [School Board Project](https://github.com/dragonnomada/school-board) was built with [Architector Pro](./ArchitectorPro.md) and released to [Next JS](https://nextjs.org) and [React JS](https://reactjs.org).
 
 ![The School Board View](./assets/SchoolBoard.png)
 
@@ -83,9 +83,9 @@ Follow the next tutorial to understand how the project was built.
 
 ## Documentation
 
-* [Introduction to React JS](./ArchitectorPro.md)
+* [Introduction to React JS](./ReactJS.md)
 
-* [Introduction to Next JS](./ArchitectorPro.md)
+* [Introduction to Next JS](./NextJS.md)
 
 * [Introduction to Architector Pro](./ArchitectorPro.md)
 
