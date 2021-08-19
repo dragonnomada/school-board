@@ -42,7 +42,7 @@ export default function Details() {
                             });
                         }}
                     >
-                        Regresar
+                        Go Back
                     </button>
                 </div>
             </div>

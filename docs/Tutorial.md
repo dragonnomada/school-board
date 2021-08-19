@@ -285,6 +285,10 @@ Class | Description
 
 * **Note:** Call the `viewSchoolBoard()` action when the button is clicked.
 
+> Check for the results
+
+![Login](./assets/Login.png)
+
 ## 8. Design the `School Board` Component
 
 > Design the `School Board` Component
@@ -445,6 +449,10 @@ function StudentComment({ username, comment }) {
 </div>
 ```
 
+> Check for the results
+
+![SchoolBoard](./assets/SchoolBoard.png)
+
 ## 9. Design the `Details` Component
 
 > Design the `Details` Component
@@ -494,7 +502,7 @@ export default function Details() {
                             });
                         }}
                     >
-                        Regresar
+                        Go Back
                     </button>
                 </div>
             </div>
@@ -523,9 +531,13 @@ export default function Details() {
         });
     }}
 >
-    Regresar
+    Go Back
 </button>
 ```
+
+> Check for the results
+
+![Details](./assets/Details.png)
 
 ## 10. Design the `StudentBoard` Component
 
@@ -634,3 +646,7 @@ useEffect(() => {
     }}>Yes, Publish</button>
 </div>
 ```
+
+> Check for the results
+
+![StudentBoard](./assets/StudentBoard.png)
