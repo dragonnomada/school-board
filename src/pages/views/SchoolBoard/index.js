@@ -29,14 +29,20 @@ export default function SchoolBoard() {
                 </div>
             </div>
             <div className="flex flex-col">
-                {(!result || result.comments.length === 0) && (
+                {(!result || result.comments.length === 0) ? (
                     <div className="flex p-8">
                         <span className="text-gray-500 italic">Not comments</span>
                     </div>
-                )}
-                {result && result.comments.map(comment => {
-                    return <StudentComment key={comment._id} comment={comment} username={result?.username} />
-                })}
+                ) : null}
+                {result ? result.comments.map(comment => {
+                    return (
+                        <StudentComment
+                            key={comment._id}
+                            comment={comment}
+                            username={result?.username}
+                        />
+                    );
+                }) : null}
             </div>
         </div>
     );
@@ -46,7 +52,7 @@ function StudentComment({ username, comment }) {
     const { viewDetails } = useAction();
 
     return (
-        <div 
+        <div
             className="flex items-center border-b p-4 hover:bg-gray-200 cursor-pointer"
             onClick={() => {
                 viewDetails({
@@ -57,7 +63,10 @@ function StudentComment({ username, comment }) {
         >
             <div className="flex items-center pr-16">
                 <div className="p-4">
-                    <img className="w-16 h-16 rounded-full" src={`https://i.pravatar.cc/150?img=${comment.pictureId || 1}`} />
+                    <img
+                        className="w-16 h-16 rounded-full"
+                        src={`https://i.pravatar.cc/150?img=${comment.pictureId || 1}`}
+                    />
                 </div>
                 <div>
                     <span className="text-gray-500">{comment.username}</span>

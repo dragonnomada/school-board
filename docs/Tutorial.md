@@ -117,7 +117,7 @@ Class | Description
 
 ```js
 export default function Login() {
-    // ...(logic)
+    // ...(useAction and useSession)
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -147,7 +147,7 @@ export default function Login() {
 
 > Design the `{/* TITLE */}`
 
-```html
+```jsx
 <div className="flex items-center pb-4">
     <span className="pr-4"><i className="fas fa-table fa-2x"></i></span>
     <span className="text-4xl">School Board</span>
@@ -164,7 +164,7 @@ Class | Description
 
 > Design the `{/* SUBTITLE */}`
 
-```html
+```jsx
 <div className="pb-4">
     <span className="text-3xl text-purple-600">Sign In</span>
 </div>
@@ -177,7 +177,7 @@ Class | Description
 
 > Design the `{/* INPUT username */}`
 
-```html
+```jsx
 <div className="py-1">
     <input
         className="w-full border-b-2 focus:outline-none focus:border-purple-500 p-1"
@@ -200,7 +200,7 @@ Class | Description
 
 > Design the `{/* INPUT password */}`
 
-```html
+```jsx
 <div className="py-1">
     <input
         className="w-full border-b-2 focus:outline-none focus:border-purple-500 p-1"
@@ -214,7 +214,7 @@ Class | Description
 
 > Design the `{/* ERROR TEXT result?.error */}`
 
-```html
+```jsx
 {
     result?.error ? (
         <div className="py-2">
@@ -233,7 +233,7 @@ Class | Description
 
 > Design the `{/* COMMENT TEXT result?.comment */}`
 
-```html
+```jsx
 {
     result?.comment ? (
         <div className="py-2">
@@ -246,7 +246,7 @@ Class | Description
 
 > Design the `{/* BUTTON Enter to Student's Board */}`
 
-```html
+```jsx
 <div className="flex justify-center">
     <button
         className="bg-purple-500 hover:bg-purple-700 text-white px-2 py-1 rounded"
@@ -274,7 +274,7 @@ Class | Description
 
 > Design the `{/* BUTTON View School Board */}`
 
-```html
+```jsx
 <button
     className="bg-red-500 hover:bg-red-700 text-white px-2 py-1 rounded text-xl"
     onClick={() => {
@@ -284,3 +284,127 @@ Class | Description
 ```
 
 * **Note:** Call the `viewSchoolBoard()` action when the button is clicked.
+
+## 8. Design the `School Board` Component
+
+> Design the `School Board` Component
+
+```jsx
+import React from "react";
+
+import useAction from "./useAction";
+import useInfo from "./useInfo";
+import useSession from "./useSession";
+
+export default function SchoolBoard() {
+    const [result, session] = useSession();
+
+    const { enterAsStudent, addComment } = useAction();
+
+    return (
+        <div className="xw-1/2 flex flex-col p-8 xbg-red-500">
+            <div>
+                <span className="text-4xl">School Board</span>
+            </div>
+            <div className="flex">
+                <div className="pr-4 p-2">
+                    <button onClick={() => {
+                        const comment = prompt("Escribe tu comantario:");
+
+                        if (comment) {
+                            addComment({ comment, username: result?.username });
+                        }
+                    }}>Add Comment</button>
+                </div>
+                <div className="p-2">
+                    <button onClick={() => enterAsStudent()}>Sign In</button>
+                </div>
+            </div>
+            <div className="flex flex-col">
+                {(!result || result.comments.length === 0) ? (
+                    <div className="flex p-8">
+                        <span className="text-gray-500 italic">Not comments</span>
+                    </div>
+                ) : null}
+                {result ? result.comments.map(comment => {
+                    return (
+                        <StudentComment
+                            key={comment._id}
+                            comment={comment}
+                            username={result?.username}
+                        />
+                    );
+                }) : null}
+            </div>
+        </div>
+    );
+}
+
+// TODO: Design the <StudentComment> component
+```
+
+> **NOTE:** 
+
+```jsx
+<button onClick={() => {
+    const comment = prompt("Escribe tu comantario:");
+
+    if (comment) {
+        addComment({ comment, username: result?.username });
+    }
+}}>Add Comment</button>
+```
+
+> **NOTE:** Map each comment as `<StudentComment>`
+
+```jsx
+result.comments.map(comment => {
+    return (
+        <StudentComment
+            key={comment._id}
+            comment={comment}
+            username={result?.username}
+        />
+    );
+})
+```
+
+> Design the `<StudentComment>` component
+
+```jsx
+function StudentComment({ username, comment }) {
+    const { viewDetails } = useAction();
+
+    return (
+        <div 
+            className="flex items-center border-b p-4 hover:bg-gray-200 cursor-pointer"
+            onClick={() => {
+                viewDetails({
+                    username,
+                    comment
+                });
+            }}
+        >
+            <div className="flex items-center pr-16">
+                <div className="p-4">
+                    <img
+                        className="w-16 h-16 rounded-full"
+                        src={`https://i.pravatar.cc/150?img=${comment.pictureId || 1}`}
+                    />
+                </div>
+                <div>
+                    <span className="text-gray-500">{comment.username}</span>
+                </div>
+            </div>
+            <div className="flex-grow flex justify-end items-end">
+                <div>
+                    <span><i className="fas fa-quote-left fa-2x"></i></span>
+                </div>
+                <div className="text-gray-500 px-8 py-2">
+                    <span>{comment.comment}</span>
+                </div>
+            </div>
+        </div>
+    );
+}
+```
