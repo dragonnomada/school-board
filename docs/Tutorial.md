@@ -36,20 +36,251 @@ In the next document you can follow step by step the process to build this proje
 
 ![Diagram](./assets/Tutorial_5.png)
 
->  **IMPORTANT:** Check the [Quick Start](./readme.md#quick-start) to run the project.
+## 5. Test the project
 
-## 5. Setup `SchoolBoard` as the main React Component
+**IMPORTANT:** Check the [Quick Start](./readme.md#quick-start) to run the project.
 
-> Into `pages/index.js` bind the `SchoolBoard` component
+> Install the dependencies
+
+```bash
+npm install
+```
+
+> Run the project
+
+```bash
+npm run dev
+```
+
+* **Note:** If you need stop the project press `CTRL+C`.
+
+> Visit [http://localhost:3000](http://localhost:3000)
+
+## 6. Setup `Login` as the main React Component
+
+> Into `pages/index.js` bind the `Login` component
 
 ```jsx
 // src/pages/index.js
 
-import SchoolBoard from "./views/SchoolBoard";
+import Login from "./views/Login";
 
 export default function App() {
     return (
-        <SchoolBoard />
+        <Login />
     );
 }
 ```
+
+> **Memo:** Test the project with `npm run dev` and visit [http://localhost:3000](http://localhost:3000)
+
+## 7. Design the `Login` Component
+
+> Remove the comments and clean the code
+
+```jsx
+import { useState } from "react";
+
+import useAction from "./useAction";
+import useInfo from "./useInfo";
+import useSession from "./useSession";
+
+export default function Login() {
+    const info = useInfo();
+
+    const [result, session] = useSession();
+
+    const { signIn, viewSchoolBoard } = useAction();
+
+    // TODO: View here
+}
+```
+
+**IMPORTANT:** We use [Tailwind CSS](https://tailwindcss.com) to adjust the design through `CSS-Classes` like `p-8` equivalent to the rule `{ padding: 2rem; }`. The most important and difficult code is undestand [Flexbox System](https://tailwindcss.com/docs/flex-direction), learn and try to understand all the basics about it.
+
+> Minimap of TailwindCSS
+
+Class | Description
+--- | ---
+`w-screen` | Fix the width to the screen
+`h-screen` | Fix the height to the screen
+`flex` | Creates a flexbox container (it can expand itself and the inner elements)
+`flex-col` | Display the inner elements like a column (vertical flow direction)
+`justify-center` | In `flex-col` mode align the elements to the center in the horizontal axis (tansversal axis)
+`items-center` | In `flex-col` mode align the elements to the center in the vertical axis (primary axis)
+`w-1/3` | Fix the width to the 33.333% of the parent's width
+`border` | Draw a border box
+`p-<SIZE>` | Put a inner margin with `<SIZE> units` distance
+`rounded-lg` | Round the corners with a `lg size` (big radius rounded)
+
+> Design the View
+
+```js
+export default function Login() {
+    // ...(logic)
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    return (
+        <div className="w-screen h-screen flex flex-col justify-center items-center">
+            <div className="w-1/3 border p-8 rounded-lg">
+                {/* TITLE */}
+                {/* SUBTITLE */}
+                <div className="p-4">
+                    {/* INPUT username */}
+                    {/* INPUT password */}
+                    {/* ERROR TEXT result?.error */}
+                    {/* COMMENT TEXT result?.comment */}
+                </div>
+                {/* BUTTON Enter to Student's Board */}
+            </div>
+            <div className="p-8">
+                {/* BUTTON View School Board */}
+            </div>
+        </div>
+    );
+}
+```
+
+* **Note:** Create two states, the `username` and `password` states, using `useState(initialValue)` [React Hook](https://reactjs.org/docs/hooks-state.html). Bind this states in the View (inside the `<input>` controls).
+
+> Design the `{/* TITLE */}`
+
+```html
+<div className="flex items-center pb-4">
+    <span className="pr-4"><i className="fas fa-table fa-2x"></i></span>
+    <span className="text-4xl">School Board</span>
+</div>
+```
+
+Class | Description
+--- | ---
+`items-center` | In `flex-row` mode align the elements to the center in the horizontal axis (transversal axis)
+`pb-<SIZE>` | Inner bottom margin
+`pr-<SIZE>` | Inner right margin
+`fas fa-table` | [Fontawesome `Table` Icon](https://fontawesome.com/v5.15/icons/table?style=solid)
+`fa-2x` | 2x times sized icon
+
+> Design the `{/* SUBTITLE */}`
+
+```html
+<div className="pb-4">
+    <span className="text-3xl text-purple-600">Sign In</span>
+</div>
+```
+
+Class | Description
+--- | ---
+`text-3xl` | Text with fontsize 3x sized
+`text-purple-600` | Text color purple
+
+> Design the `{/* INPUT username */}`
+
+```html
+<div className="py-1">
+    <input
+        className="w-full border-b-2 focus:outline-none focus:border-purple-500 p-1"
+        placeholder="Username"
+        value={username}
+        onChange={event => setUsername(event.target.value)}
+    />
+</div>
+```
+
+Class | Description
+--- | ---
+`py-1` | Inner margin vertical
+`w-full` | 100% width
+`border-b-2` | Border bottom `2 units`
+`focus:outline-none` | Removes outline to input control on focus
+`focus:outline-none` | Put border color purple on focus
+
+* **Note:** `value={username}` binds the value of the `<input>` control to the `username` state. When the `<input>` changes use `onChange={event => setUsername(event.target.value)}` to update the `username` state with the value of the `event.target.value` (the current `<input>` value).
+
+> Design the `{/* INPUT password */}`
+
+```html
+<div className="py-1">
+    <input
+        className="w-full border-b-2 focus:outline-none focus:border-purple-500 p-1"
+        type="password"
+        placeholder="password"
+        value={password}
+        onChange={event => setPassword(event.target.value)}
+    />
+</div>
+```
+
+> Design the `{/* ERROR TEXT result?.error */}`
+
+```html
+{
+    result?.error ? (
+        <div className="py-2">
+            <span className="text-sm text-red-500">* {result.error}</span>
+        </div>
+    ) : null
+}
+```
+
+Class | Description
+--- | ---
+`text-sm` | Small text
+`text-red-500` | Text color red in `500` intensity
+
+* **Note:** Use `result?.error ? <VIEW> : null` to show the `<VIEW>` if the `result` exists and `error` contains some *truthy*. Use `{result.error}` to put the error as content of the span (concats with "* " text).
+
+> Design the `{/* COMMENT TEXT result?.comment */}`
+
+```html
+{
+    result?.comment ? (
+        <div className="py-2">
+            <span className="text-sm text-purple-500">Inicia sesión para agregar tu comentario: </span>
+            <span className="text-sm text-purple-500 font-bold">{result.comment}</span>
+        </div>
+    ) : null
+}
+```
+
+> Design the `{/* BUTTON Enter to Student's Board */}`
+
+```html
+<div className="flex justify-center">
+    <button
+        className="bg-purple-500 hover:bg-purple-700 text-white px-2 py-1 rounded"
+        onClick={() => {
+            
+            signIn({
+                username,
+                password,
+                comment: result?.comment
+            });
+
+        }}
+    >Enter to Student's Board</button>
+</div>
+```
+
+* **Note:** When button is clicking call the action `signIn(...)` with `{ username, password, comment }` object as the api's input. Send the comment as `result?.comment` if exists, else send `null` as comment.
+
+Class | Description
+--- | ---
+`justify-center` | In `flex-row` mode align the elements to the center in the vertical axis (primary axis)
+`bg-purple-500` | Background color purple
+`hover:bg-purple-700` | Background color dark purple on mouse hover
+`rounded` | Round corners
+
+> Design the `{/* BUTTON View School Board */}`
+
+```html
+<button
+    className="bg-red-500 hover:bg-red-700 text-white px-2 py-1 rounded text-xl"
+    onClick={() => {
+        viewSchoolBoard();
+    }}
+>View School Board</button>
+```
+
+* **Note:** Call the `viewSchoolBoard()` action when the button is clicked.

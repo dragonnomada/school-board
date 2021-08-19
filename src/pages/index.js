@@ -1,7 +1,7 @@
-import SchoolBoard from "./views/SchoolBoard";
+import Login from "./views/Login";
 
 export default function App() {
     return (
-        <SchoolBoard />
+        <Login />
     );
 }
