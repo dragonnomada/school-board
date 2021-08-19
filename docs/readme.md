@@ -6,6 +6,10 @@ The [School Board Project](https://github.com/dragonnomada/school-board) was bui
 
 ![The School Board View](./assets/SchoolBoard.png)
 
+## Test The Project
+
+You can visit [NOT READY](https://example.com) to see the project working.
+
 ## Quick Start
 
 Follow the next steps to run this project.
