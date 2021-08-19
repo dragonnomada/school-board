@@ -29,6 +29,8 @@ In the next document you can undestand by diagrams and explanations the *Project
 
 ## The Transition Process
 
+![TransitionDiagram](./assets/TransitionDiagram.png)
+
 > Step 1. Into `CLIENT: SomeUI/index.js` - Call some action with data
 
 ```jsx
