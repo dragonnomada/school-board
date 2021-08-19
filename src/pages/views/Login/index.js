@@ -52,7 +52,7 @@ export default function Login() {
                     {
                         result?.comment ? (
                             <div className="py-2">
-                                <span className="text-sm text-purple-500">Inicia sesión para agregar tu comentario: </span>
+                                <span className="text-sm text-purple-500">Sign in to publish your comment: </span>
                                 <span className="text-sm text-purple-500 font-bold">{result.comment}</span>
                             </div>
                         ) : null

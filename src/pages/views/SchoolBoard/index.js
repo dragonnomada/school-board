@@ -17,7 +17,7 @@ export default function SchoolBoard() {
             <div className="flex">
                 <div className="pr-4 p-2">
                     <button onClick={() => {
-                        const comment = prompt("Escribe tu comantario:");
+                        const comment = prompt("Write your comment:");
 
                         if (comment) {
                             addComment({ comment, username: result?.username });

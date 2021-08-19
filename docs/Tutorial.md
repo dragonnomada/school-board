@@ -237,7 +237,7 @@ Class | Description
 {
     result?.comment ? (
         <div className="py-2">
-            <span className="text-sm text-purple-500">Inicia sesión para agregar tu comentario: </span>
+            <span className="text-sm text-purple-500">Sign in to publish your comment: </span>
             <span className="text-sm text-purple-500 font-bold">{result.comment}</span>
         </div>
     ) : null
@@ -309,7 +309,7 @@ export default function SchoolBoard() {
             <div className="flex">
                 <div className="pr-4 p-2">
                     <button onClick={() => {
-                        const comment = prompt("Escribe tu comantario:");
+                        const comment = prompt("Write your comment:");
 
                         if (comment) {
                             addComment({ comment, username: result?.username });
@@ -347,7 +347,7 @@ export default function SchoolBoard() {
 
 ```jsx
 <button onClick={() => {
-    const comment = prompt("Escribe tu comantario:");
+    const comment = prompt("Write your comment:");
 
     if (comment) {
         addComment({ comment, username: result?.username });
@@ -442,5 +442,195 @@ function StudentComment({ username, comment }) {
 ```jsx
 <div className="text-gray-500 px-8 py-2">
     <span>{comment.comment}</span>
+</div>
+```
+
+## 9. Design the `Details` Component
+
+> Design the `Details` Component
+
+```jsx
+import React from "react";
+
+import useAction from "./useAction";
+import useSession from "./useSession";
+
+export default function Details() {
+    const [result, session] = useSession();
+
+    const { closeDetails } = useAction();
+
+    return (
+        <div className="w-screen h-screen flex justify-center items-center">
+            <div className="flex flex-col items-center border rounded-lg p-4">
+                <div className="flex items-center pr-16">
+                    <div className="p-4">
+                        <img
+                            className="w-16 h-16 rounded-full"
+                            src={`https://i.pravatar.cc/150?img=${result?.comment.pictureId || 1}`}
+                        />
+                    </div>
+                    <div>
+                        <span className="text-gray-500">{result?.comment.username}</span>
+                    </div>
+                </div>
+                <div className="flex-grow flex">
+                    <div>
+                        <span><i className="fas fa-quote-left fa-2x"></i></span>
+                    </div>
+                    <div className="text-gray-500 px-8 py-2">
+                        <span>{result?.comment.comment}</span>
+                    </div>
+                </div>
+                <div className="text-gray-500 px-8 py-2">
+                    <span>{new Date(result?.comment.at).toLocaleString()}</span>
+                </div>
+                <div className="w-full flex justify-center border-t py-2">
+                    <button
+                        className="bg-purple-500 text-white py-1 px-2 rounded"
+                        onClick={() => {
+                            closeDetails({
+                                username: result?.username
+                            });
+                        }}
+                    >
+                        Regresar
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
+}
+```
+
+> **NOTE:** Draw the comment user's picture
+
+```jsx
+<img
+    className="w-16 h-16 rounded-full"
+    src={`https://i.pravatar.cc/150?img=${result?.comment.pictureId || 1}`}
+/>
+```
+
+> **NOTE:** Call the `closeDetails` action by clicking the `Return` button.
+
+```jsx
+<button
+    className="bg-purple-500 text-white py-1 px-2 rounded"
+    onClick={() => {
+        closeDetails({
+            username: result?.username
+        });
+    }}
+>
+    Regresar
+</button>
+```
+
+## 10. Design the `StudentBoard` Component
+
+> Design the `StudentBoard` Component
+
+```jsx
+import React, { useState, useEffect } from "react";
+
+import useAction from "./useAction";
+import useSession from "./useSession";
+
+import SchoolBoard from "../SchoolBoard";
+
+export default function StudentBoard() {
+
+    const [result, session] = useSession();
+
+    const { signOut, publishComment } = useAction();
+
+    const [isCommentModalClosed, setIsCommentModalClosed] = useState(false);
+
+    useEffect(() => {
+        setIsCommentModalClosed(false);
+    }, [session]);
+
+    return (
+        <div className="flex flex-col xbg-gray-200">
+            <div className="xw-1/2 flex justify-between items-center p-2 border-b px-8 xbg-blue-500">
+                <div>
+                    <span className="text-2xl">Student's Board</span>
+                </div>
+                <div className="flex-grow flex justify-between items-center px-8">
+                    <div className="flex items-center px-4">
+                        <div className="px-4">
+                            <img
+                                className="w-16 h-16 rounded-full"
+                                src={`https://i.pravatar.cc/300?img=${result?.user?.pictureId || 1}`}
+                            />
+                        </div>
+                        <div className="flex flex-col px-4">
+                            <span className="text-gray-700">Welcome</span>
+                            <span className="text-gray-500">{result?.username}</span>
+                        </div>
+                    </div>
+                    <div className="px-8">
+                        <button
+                            className="text-purple-500"
+                            onClick={() => signOut()}
+                        >Sign Out</button>
+                    </div>
+                </div>
+            </div>
+            {
+                (result?.comment && !isCommentModalClosed) ? (
+                    <div className="w-screen h-screen absolute left-0 top-0 flex justify-center items-center">
+                        <div className="bg-white z-10 p-8 border">
+                            <div>
+                                <span>Do you publish this comment?</span>
+                            </div>
+                            <div className="flex items-center py-4">
+                                <div>
+                                    <span><i className="fas fa-quote-left fa-2x"></i></span>
+                                </div>
+                                <div className="px-4">
+                                    <span className="text-xl">{result.comment}</span>
+                                </div>
+                            </div>
+                            <div className="flex justify-between">
+                                <button className="text-red-500" onClick={() => {
+                                    setIsCommentModalClosed(true);
+                                }}>No, Dismiss</button>
+                                <button className="text-green-500" onClick={() => {
+                                    publishComment({ comment: result.comment, username: result.username });
+                                }}>Yes, Publish</button>
+                            </div>
+                        </div>
+                        <div className="w-screen h-screen flex bg-gray-200 opacity-50 absolute left-0 top-0"></div>
+                    </div>
+                ) : null
+            }
+            <SchoolBoard />
+        </div>
+    );
+}
+```
+
+> **NOTE:** Creates a open modal state. Check when session will change and update the modal state.
+
+```jsx
+const [isCommentModalClosed, setIsCommentModalClosed] = useState(false);
+
+useEffect(() => {
+    setIsCommentModalClosed(false);
+}, [session]);
+```
+
+> **NOTE:** Dismiss or publish the comment. Call the `publishComment` action if the user accepts the modal.
+
+```jsx
+<div className="flex justify-between">
+    <button className="text-red-500" onClick={() => {
+        setIsCommentModalClosed(true);
+    }}>No, Dismiss</button>
+    <button className="text-green-500" onClick={() => {
+        publishComment({ comment: result.comment, username: result.username });
+    }}>Yes, Publish</button>
 </div>
 ```
