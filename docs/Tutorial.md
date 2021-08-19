@@ -2,9 +2,7 @@
 
 ## Introduction
 
-In the next document you can follow step by step the process to build this project.
-
-The first step is design the diagram in the Architector Pro Editor, follow by generate the source codes and finally setup the *views* and *apis*.
+In the next document you can follow step by step the process to build this project. The first step is design the diagram in the Architector Pro Editor, following by generate the source codes and finally setup the *views* and *apis*.
 
 ## 1. Create The Project Diagram
 
