@@ -75,11 +75,27 @@ User | Password
 **john** | doe
 **marco** | polo
 
+## Learn to use Architector Pro, React JS or Next JS
+
+If you never use Architector Pro, Next JS or React JS then complete these tutorials.
+
+[Introduction to React JS](./ReactJS.md)
+
+[Introduction to Next JS](./NextJS.md)
+
+[Introduction to Architector Pro](./ArchitectorPro.md)
+
 ## Tutorial
 
 Follow the next tutorial to understand how the project was built.
 
 [School Board - Tutorial Step by Step](./Tutorial.md)
+
+## Software Architecture
+
+Open this document to understand in depth the *Project's Software Architecture*.
+
+[School Board - Project Architecture](./Architecture.md)
 
 ## Documentation
 
