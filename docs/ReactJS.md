@@ -4,7 +4,7 @@ By [Dragon Nomada](dragonnomada.medium.com)
 
 ## What is React JS?
 
-A framework develop by Facebook based on modular, visual and functional components.
+A framework develop by [Facebook](https://www.facebook.com) based on modular, visual and functional components.
 
 > Visit [https://reactjs.org](https://reactjs.org)
 
