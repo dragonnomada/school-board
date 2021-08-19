@@ -108,9 +108,16 @@ return (
 
 * **Note:** In this point the transition from `SomeUI` to `OtherUI` is completed. You can see in the next table the datils.
 
+> Example: Generic Transition Table
+
 Initial UI | Transition Action | Action Data (Input) | Transition Condition | Target UI | Transition Data (Result)
 --- | --- | --- | --- | --- | ---
 `SomeUI` | `someAction` | `data` | `SomeCondition` | `OtherUI` | `result`
+
+> Example: Login Transition Table
+
+Initial UI | Transition Action | Action Data (Input) | Transition Condition | Target UI | Transition Data (Result)
+--- | --- | --- | --- | --- | ---
 `Login` | `signIn` | `{ username, password, comment? }` | `Fromstudent` | `StudentBoard` | `{ username, comments, user }`
 `Login` | `signIn` | `{ username, password, comment? }` | `Withnewcomment` | `StudentBoard` | `{ username, comments, user, comment }`
 `Login` | `signIn` | `{ username, password, comment? }` | `Fail` | `Login` | `{ error, comment }`
