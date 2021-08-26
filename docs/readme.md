@@ -6,6 +6,10 @@ The [School Board Project](https://github.com/dragonnomada/school-board) was bui
 
 ![The School Board View](./assets/SchoolBoard.png)
 
+## Video Tutorial
+
+[![School Board Tutorial](https://img.youtube.com/vi/j4N-kxvC3Cw/0.jpg)](https://www.youtube.com/watch?v=j4N-kxvC3Cw)
+
 ## Test The Project
 
 You can visit [NOT READY](https://example.com) to see the project working.
