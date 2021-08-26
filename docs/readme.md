@@ -8,7 +8,7 @@ The [School Board Project](https://github.com/dragonnomada/school-board) was bui
 
 ## Video Tutorial
 
-[![School Board Tutorial](https://img.youtube.com/vi/j4N-kxvC3Cw/0.jpg)](https://www.youtube.com/watch?v=j4N-kxvC3Cw)
+[![School Board Tutorial](https://img.youtube.com/vi/FQT_CujDQ-Q/0.jpg)](https://www.youtube.com/watch?v=FQT_CujDQ-Q)
 
 ## Test The Project
 
