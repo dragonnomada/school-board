@@ -1,0 +1,232 @@
+{
+    "protocol": "architector-pro-cli@1.0.0",
+    "version": 1,
+    "schema": {
+        "protocol": "@string - <cli>@<version>",
+        "version": "@number - protocol version",
+        "diagram": [
+            {
+                "key": "@string - user interface id",
+                "id": "@string - graph node id",
+                "type": "@string - 'ui'",
+                "name": "@string - *PascalCase* Label User Interface",
+                "label": "@string - Raw Label User Interface",
+                "parent": "@string - graph parent node id",
+                "children": [
+                    {
+                        "id": "@string - graph node id (child)",
+                        "name": "@string - Pascal Case Label User Interface (child)"
+                    }
+                ],
+                "actions": [
+                    {
+                        "type": "@string - 'action'",
+                        "name": "*camelCase* Label Action Fragment Transition",
+                        "label": "Raw Label Action Fragment Transition",
+                        "parent": "@string - graph parent node id (arrow parent)",
+                        "source": "@string - graph node id (from)",
+                        "sourceName": "@string - Pascal Case Label User Interface (from)",
+                        "channels": [
+                            {
+                                "channel": "*PascalCase* Label Condition Fragment Transition",
+                                "target": "@string - graph node id (to)",
+                                "targetName": "@string - Pascal Case Label User Interface (to)"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "diagram": [
+        {
+            "key": "1",
+            "id": "2",
+            "type": "ui",
+            "name": "Login",
+            "label": "Login",
+            "parent": "1",
+            "children": [],
+            "actions": [
+                {
+                    "type": "action",
+                    "name": "signIn",
+                    "label": "Sign In",
+                    "parent": "1",
+                    "source": "2",
+                    "sourceName": "Login",
+                    "channels": [
+                        {
+                            "channel": "FromStudent",
+                            "target": "4",
+                            "targetName": "StudentBoard"
+                        },
+                        {
+                            "channel": "WithNewComment",
+                            "target": "4",
+                            "targetName": "StudentBoard"
+                        },
+                        {
+                            "channel": "Fail",
+                            "target": "2",
+                            "targetName": "Login"
+                        }
+                    ]
+                },
+                {
+                    "type": "action",
+                    "name": "viewSchoolBoard",
+                    "label": "View School Board",
+                    "parent": "1",
+                    "source": "2",
+                    "sourceName": "Login",
+                    "channels": [
+                        {
+                            "channel": "WithoutSession",
+                            "target": "7",
+                            "targetName": "SchoolBoard"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "2",
+            "id": "4",
+            "type": "ui",
+            "name": "StudentBoard",
+            "label": "Student Board",
+            "parent": "1",
+            "children": [
+                {
+                    "id": "7",
+                    "name": "SchoolBoard"
+                }
+            ],
+            "actions": [
+                {
+                    "type": "action",
+                    "name": "signOut",
+                    "label": "Sign Out",
+                    "parent": "1",
+                    "source": "4",
+                    "sourceName": "StudentBoard",
+                    "channels": [
+                        {
+                            "channel": "Default",
+                            "target": "2",
+                            "targetName": "Login"
+                        }
+                    ]
+                },
+                {
+                    "type": "action",
+                    "name": "publishComment",
+                    "label": "Publish Comment",
+                    "parent": "1",
+                    "source": "4",
+                    "sourceName": "StudentBoard",
+                    "channels": [
+                        {
+                            "channel": "Default",
+                            "target": "4",
+                            "targetName": "StudentBoard"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "3",
+            "id": "7",
+            "type": "ui",
+            "name": "SchoolBoard",
+            "label": "School Board",
+            "parent": "4",
+            "children": [],
+            "actions": [
+                {
+                    "type": "action",
+                    "name": "addComment",
+                    "label": "Add Comment",
+                    "parent": "4",
+                    "source": "7",
+                    "sourceName": "SchoolBoard",
+                    "channels": [
+                        {
+                            "channel": "WithSession",
+                            "target": "4",
+                            "targetName": "StudentBoard"
+                        },
+                        {
+                            "channel": "WithoutSession",
+                            "target": "2",
+                            "targetName": "Login"
+                        }
+                    ]
+                },
+                {
+                    "type": "action",
+                    "name": "viewDetails",
+                    "label": "View Details",
+                    "parent": "1",
+                    "source": "7",
+                    "sourceName": "SchoolBoard",
+                    "channels": [
+                        {
+                            "channel": "Default",
+                            "target": "9",
+                            "targetName": "Details"
+                        }
+                    ]
+                },
+                {
+                    "type": "action",
+                    "name": "enterAsStudent",
+                    "label": "Enter as Student",
+                    "parent": "1",
+                    "source": "7",
+                    "sourceName": "SchoolBoard",
+                    "channels": [
+                        {
+                            "channel": "Default",
+                            "target": "2",
+                            "targetName": "Login"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "4",
+            "id": "9",
+            "type": "ui",
+            "name": "Details",
+            "label": "Details",
+            "parent": "1",
+            "children": [],
+            "actions": [
+                {
+                    "type": "action",
+                    "name": "closeDetails",
+                    "label": "Close Details",
+                    "parent": "1",
+                    "source": "9",
+                    "sourceName": "Details",
+                    "channels": [
+                        {
+                            "channel": "FromSchoolBoard",
+                            "target": "7",
+                            "targetName": "SchoolBoard"
+                        },
+                        {
+                            "channel": "FromStudentBoard",
+                            "target": "4",
+                            "targetName": "StudentBoard"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
